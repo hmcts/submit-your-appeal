@@ -174,9 +174,18 @@ describe('HearingOptions.js', () => {
   });
 
   describe('answers()', () => {
-    it('should contain hide index which is set to true', () => {
-      const answers = hearingOptions.answers();
-      expect(answers.hide).to.equal(true);
+    let answers = null;
+
+    before(() => {
+      answers = hearingOptions.answers()[0];
+    });
+
+    it('should return expected section', () => {
+      expect(answers.section).to.equal('hearing-options');
+    });
+
+    it('should return expected template', () => {
+      expect(answers.template).to.equal('answer.html');
     });
   });
 
@@ -253,6 +262,26 @@ describe('HearingOptions.js', () => {
       options.video.requested = false;
       options.faceToFace.requested = true;
       expect(optionSelected(options)).to.equal(true);
+    });
+  });
+
+  describe('get cyaOptions()', () => {
+    it('should return an object', () => {
+      hearingOptions = new HearingOptions({});
+      hearingOptions.fields = {
+        selectOptions: {
+          value: {
+            telephone: { requested: { value: true }, phoneNumber: '0987654321' },
+            video: { requested: { value: true }, email: 'name@email' }, faceToFace: { requested: { value: true } }
+          }
+        }
+      };
+
+      expect(hearingOptions.cyaOptions).to.eql({
+        hearingTypeTelephone: '0987654321',
+        hearingTypeVideo: 'name@email',
+        hearingTypeFaceToFace: 'Requested'
+      });
     });
   });
 });
