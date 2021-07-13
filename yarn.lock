@@ -1850,6 +1850,11 @@ ansi-styles@^4.0.0, ansi-styles@^4.1.0:
   dependencies:
     color-convert "^2.0.1"
 
+ansi@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/ansi/-/ansi-0.3.1.tgz#0c42d4fb17160d5a9af1e484bace1c66922c1b21"
+  integrity sha1-DELU+xcWDVqa8eSEus4cZpIsGyE=
+
 anymatch@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/anymatch/-/anymatch-2.0.0.tgz#bcb24b4f37934d9aa7ac17b4adaf89e7c76ef2eb"
@@ -6997,6 +7002,13 @@ loader-utils@^2.0.0:
     emojis-list "^3.0.0"
     json5 "^2.1.2"
 
+loading-spinner@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/loading-spinner/-/loading-spinner-1.2.1.tgz#7179799685744d582258185c24cf137f2a66677d"
+  integrity sha512-e3VZ2BhTrymiGceEsO6xB21x6twX39zMSVeYWFQAGbeCVQmd2HRUVRYYlx1RqTu0/7hiJa+ZcDRiNUruBzh7xA==
+  dependencies:
+    ansi "^0.3.1"
+
 locate-path@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/locate-path/-/locate-path-3.0.0.tgz#dbec3b3ab759758071b58fe59fc41871af21400e"
@@ -9519,10 +9531,15 @@ redent@^1.0.0:
     indent-string "^2.1.0"
     strip-indent "^1.0.1"
 
-redis-commands@1.6.0, redis-commands@^1.2.0:
+redis-commands@1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/redis-commands/-/redis-commands-1.6.0.tgz#36d4ca42ae9ed29815cdb30ad9f97982eba1ce23"
   integrity sha512-2jnZ0IkjZxvguITjFTrGiLyzQZcTvaw8DAaCXxZq/dsHXz7KfMQ3OUJy7Tz9vnRtZRVz6VRCPDvruvU8Ts44wQ==
+
+redis-commands@^1.2.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/redis-commands/-/redis-commands-1.7.0.tgz#15a6fea2d58281e27b1cd1acfb4b293e278c3a89"
+  integrity sha512-nJWqw3bTFy21hX/CPKHth6sfhZbdiHP6bTawSgQBlKOVRG7EZkfHbbHwQJnrE4vsQf0CMNE+3gJ4Fmm16vdVlQ==
 
 redis-errors@^1.0.0, redis-errors@^1.2.0:
   version "1.2.0"
@@ -10501,6 +10518,11 @@ spdx-license-ids@^3.0.0:
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.7.tgz#e9c18a410e5ed7e12442a549fbd8afa767038d65"
   integrity sha512-U+MTEOO0AiDzxwFvoa4JVnMV6mZlJKk2sBLt90s7G0Gd0Mlknc7kxEn3nuDPNZRta7O2uy8oLcZLVT+4sqNZHQ==
 
+spin.js@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/spin.js/-/spin.js-4.1.0.tgz#afcf12738fafd5f6aa0a385a5b4cec45c86a3555"
+  integrity sha512-WI8O1OdJlKjialIhB9Z5RfFFM4pI7Hohik76bB3N4Ep3N/vTDPZiRU8QeefyLbmpI5n2bFQXgticl2g+/KiKYA==
+
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"
@@ -10773,6 +10795,11 @@ superagent-csrf@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/superagent-csrf/-/superagent-csrf-1.0.0.tgz#f3e3afc3d177d04faca965925408436d9814129c"
   integrity sha1-8+Ovw9F30E+sqWWSVAhDbZgUEpw=
+
+superagent-retry-delay@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/superagent-retry-delay/-/superagent-retry-delay-2.6.2.tgz#b9c599861ef0d702f940219910ce6a868b9ffbbe"
+  integrity sha512-WpY1XkPNGArpzrm9MfHkL3WLCOb/Dfca53X3aM+8bAC6PDI12ghkzMk+R0QfX5uTatXQfMApGsq115QrrEhrAA==
 
 superagent@5:
   version "5.3.1"

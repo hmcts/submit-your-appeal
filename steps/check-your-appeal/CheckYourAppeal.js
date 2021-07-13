@@ -13,8 +13,11 @@ const logger = require('logger');
 const logPath = 'CheckYourAppeal.js';
 const HttpStatus = require('http-status-codes');
 const request = require('superagent');
+const loadingSpinner = require('loading-spinner');
+
 
 require('superagent-csrf')(request);
+require('superagent-retry-delay')(request);
 
 const paths = require('paths');
 const Joi = require('joi');
@@ -26,6 +29,8 @@ const config = require('config');
 const allowSaveAndReturn = config.get('features.allowSaveAndReturn.enabled') === 'true';
 
 const httpRetries = 3;
+const retryDelay = 1000;
+
 
 class CheckYourAppeal extends SaveToDraftStoreCYA {
   constructor(...args) {
@@ -82,6 +87,7 @@ class CheckYourAppeal extends SaveToDraftStoreCYA {
     }
   }
 
+
   sendToAPI() {
     this.validateJourneyValues();
     const headers = this.tokenHeader(this.req);
@@ -103,9 +109,18 @@ class CheckYourAppeal extends SaveToDraftStoreCYA {
       get(values, 'ccdCaseId')
     ], logPath);
 
+    // eslint-disable-next-line no-magic-numbers
+    loadingSpinner.start(900,
+      {
+        clearChar: true, // Clear the spinner when stop() is called
+        clearLine: false, // Clear the entire line when stop() is called
+        doNotBlock: false, // Does not prevent the process from exiting
+        hideCursor: false // Hide the cursor until stop() is called
+      }
+    );
 
     return request.post(this.journey.settings.apiUrl)
-      .retry(httpRetries)
+      .retry(httpRetries, retryDelay)
       .set(headers)
       .send(values)
       .then(result => {
@@ -119,10 +134,15 @@ class CheckYourAppeal extends SaveToDraftStoreCYA {
           'the status is ',
           result.status
         ], logPath);
+        loadingSpinner.stop();
+
+        // Stop the loading spinner
         logger.trace(
           `POST api:${this.journey.settings.apiUrl} status:${result.status}`, logPath);
         logger.event('SYA-SendToApi-Success');
       }).catch(error => {
+        // Stop the loading spinner
+        loadingSpinner.stop();
         const errMsg =
           `${error.message} status:${error.status || HttpStatus.INTERNAL_SERVER_ERROR}`;
 
