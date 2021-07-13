@@ -101,6 +101,7 @@
     "cookieBanner": {
       "enabled": "false"
     }
+    
   },
   "postcodeChecker": {
     "endpoint": "/regionalcentre",
