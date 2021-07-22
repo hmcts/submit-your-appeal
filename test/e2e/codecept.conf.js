@@ -1,21 +1,21 @@
 /* eslint-disable no-process-env */
 const config = require('config');
 const fileAcceptor = require('test/file_acceptor');
-const fs = require('fs');
+// const fs = require('fs');
 const testUser = require('../util/IdamUser');
 
 const evidenceUploadEnabled = config.get('features.evidenceUpload.enabled');
 
-const defaultChunks = files => {
-  function hasFunctionalOrFullFunctionalAnnotation(file) {
-    // eslint-disable-next-line id-blacklist,no-sync
-    const cont = fs.readFileSync(file, 'utf-8');
-    return cont.indexOf('@functional') > -1 || cont.indexOf('@fullFunctional') > -1;
-  }
-  const filesWithKeyword = files.filter(file => hasFunctionalOrFullFunctionalAnnotation(file));
+// const defaultChunks = files => {
+//   function hasFunctionalOrFullFunctionalAnnotation(file) {
+//     // eslint-disable-next-line id-blacklist,no-sync
+//     const cont = fs.readFileSync(file, 'utf-8');
+//     return cont.indexOf('@functional') > -1 || cont.indexOf('@fullFunctional') > -1;
+//   }
+//   const filesWithKeyword = files.filter(file => hasFunctionalOrFullFunctionalAnnotation(file));
 
-  return filesWithKeyword.map(file => [file]);
-};
+//   return filesWithKeyword.map(file => [file]);
+// };
 
 exports.config = {
   tests: './**/*.test.js',
@@ -81,7 +81,7 @@ exports.config = {
   },
   multiple: {
     parallel: {
-      chunks: process.env.CHUNKS || defaultChunks,
+      chunks: 1,
       browsers: ['chrome']
     }
   },
