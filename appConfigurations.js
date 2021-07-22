@@ -106,7 +106,7 @@ const configureHelmet = app => {
       fontSrc: ['\'self\' data:'],
       styleSrc: [
         '\'self\'',
-        'https://webchat-client.ctsc.hmcts.net/chat-client/1/',
+        'https://webchat-client.training.ctsc.hmcts.net/chat-client/1/',
         '\'unsafe-inline\''
       ],
       scriptSrc: [
@@ -117,15 +117,15 @@ const configureHelmet = app => {
         'chatbuilder.netlify.com',
         'vcc-eu4.8x8.com',
         'vcc-eu4b.8x8.com',
-        'https://webchat-client.ctsc.hmcts.net/chat-client/1/'
+        'https://webchat-client.training.ctsc.hmcts.net/chat-client/1/'
       ],
       connectSrc: [
         '\'self\'',
         'www.gov.uk',
         'www.google-analytics.com',
         'www.googletagmanager.com',
-        'wss://webchat.ctsc.hmcts.net',
-        'https://webchat.ctsc.hmcts.net'
+        'wss://webchat.training.ctsc.hmcts.net',
+        'https://webchat.training.ctsc.hmcts.net'
       ],
       mediaSrc: ['\'self\''],
       frameSrc: [
@@ -142,7 +142,7 @@ const configureHelmet = app => {
         'www.googletagmanager.com',
         'vcc-eu4.8x8.com',
         'vcc-eu4b.8x8.com',
-        'https://webchat-client.ctsc.hmcts.net/chat-client/1/'
+        'https://webchat-client.training.ctsc.hmcts.net/chat-client/1/'
       ]
     }
   }));
